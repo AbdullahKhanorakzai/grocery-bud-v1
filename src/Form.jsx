@@ -24,6 +24,7 @@ function Form({ addItem }) {
           className="form-input"
           value={newItemName}
           onChange={(e) => setNewItemName(e.target.value)}
+          placeholder="Title"
         />
         <textarea
           cols="30"
@@ -31,6 +32,7 @@ function Form({ addItem }) {
           className="form-input"
           value={newItemText}
           onChange={(e) => setNewItemText(e.target.value)}
+          placeholder="Info"
         />
         <button type="submit" className="btn">
           add item

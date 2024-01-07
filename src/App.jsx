@@ -4,6 +4,7 @@ import { nanoid } from "nanoid";
 import Items from "./Items";
 
 import { ToastContainer, toast } from "react-toastify";
+import InfoAboutApp from "./InfoAboutApp";
 
 const getLocalStorage = () => {
   let list = localStorage.getItem("list");
@@ -58,22 +59,15 @@ const App = () => {
   };
 
   return (
-    <section className="section-center">
-      <Form addItem={addItem} />
-      <Items items={items} removeItem={removeItem} editItems={editItems} />
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
-    </section>
+    <>
+      <InfoAboutApp editItems={editItems} items={items} />
+      <section className="section-center">
+        <Form addItem={addItem} />
+        <Items items={items} removeItem={removeItem} editItems={editItems} />
+
+        <ToastContainer position="top-center" theme="light" />
+      </section>
+    </>
   );
 };
 

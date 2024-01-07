@@ -337,3 +337,22 @@ form h4 {
 .Toastify__toast {
   text-transform: capitalize;
 }
+body {
+  position: relative;
+}
+.info {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  z-index: 999;
+  width: 100vw;
+  background-color: var(--green-light);
+  text-align: center;
+  padding: 10rem 2rem;
+}
+.info h4 {
+  font-weight: 600;
+}
+.info p {
+  color: var(--grey-500);
+}
