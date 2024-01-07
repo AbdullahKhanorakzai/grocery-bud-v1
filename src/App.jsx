@@ -54,7 +54,7 @@ const App = () => {
     });
     setItems(newItems);
     setLocalStorage(newItems);
-    toast.success("Task Is Completed");
+    toast.success("🎉 Task Completed!");
   };
 
   return (
