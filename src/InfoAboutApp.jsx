@@ -32,7 +32,7 @@ function infoAboutApp({ editItems, items }) {
             className="btn"
             style={{ padding: ".8rem 2rem" }}
           >
-            Got it! Start Shopping
+            Got it! Let's Add Some Items 🛒
           </button>
         </div>
       )}
