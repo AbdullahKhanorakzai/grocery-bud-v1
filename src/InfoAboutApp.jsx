@@ -61,9 +61,11 @@ function InfoAboutApp() {
               maxWidth: "300px",
               margin: "0 auto",
             }}
+            netlify
+            onSubmit={handleSubmit}
           >
             <label style={{ marginBottom: "2rem", fontSize: "1.6rem" }}>
-              Subscribe my Email List:
+              Subscribe to my Email List:
               <input
                 type="text"
                 name="name"
@@ -92,7 +94,6 @@ function InfoAboutApp() {
               />
             </label>
             <button
-              onClick={handleProceed}
               type="submit"
               className="btn"
               style={{
