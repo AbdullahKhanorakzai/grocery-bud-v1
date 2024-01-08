@@ -356,3 +356,6 @@ body {
 .info p {
   color: var(--grey-500);
 }
+#text {
+  display: none;
+}

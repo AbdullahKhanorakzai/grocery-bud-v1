@@ -1,6 +1,7 @@
 import SingleItem from "./SingleItem";
 
 function Items({ items, removeItem, editItems }) {
+  console.log(items);
   return (
     <div className="items">
       {items.map((item) => {
