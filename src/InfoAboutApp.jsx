@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 
 function InfoAboutApp() {
@@ -6,9 +6,12 @@ function InfoAboutApp() {
   const [userName, setUserName] = useState("");
   const [step, setStep] = useState(1);
 
-  const hideInstructions = () => {
-    setShowInstructions(true);
-  };
+  useEffect(() => {
+    const isCompleted = localStorage.getItem("infoAboutAppCompleted");
+    if (isCompleted) {
+      setStep(4);
+    }
+  }, []);
 
   const handleProceed = (e) => {
     e.preventDefault();
@@ -16,15 +19,16 @@ function InfoAboutApp() {
   };
 
   const handleGotIt = () => {
-    const answer = window.confirm("Are you missing someone?");
+    const answer = window.confirm("Abdullah Ko Miss Karthe Ho Na?");
 
     if (answer) {
-      alert("Abdullah so much miss you and love you Beauty");
+      alert("Abdullah be apko so much miss you and love you Beauty");
     } else {
       alert("Haaa ! Atna Ghosa");
     }
 
     setStep(step + 1);
+    localStorage.setItem("infoAboutAppCompleted", "true");
   };
 
   return (
@@ -38,7 +42,7 @@ function InfoAboutApp() {
             the textarea.
           </p>
           <button
-            onClick={handleProceed}
+            onClick={() => setStep(step + 1)}
             className="btn"
             style={{ padding: ".8rem 2rem" }}
           >
@@ -50,8 +54,6 @@ function InfoAboutApp() {
       {step === 2 && (
         <div className="info">
           <form
-            name="contact"
-            netlify
             style={{
               display: "flex",
               flexDirection: "column",
@@ -60,8 +62,8 @@ function InfoAboutApp() {
               margin: "0 auto",
             }}
           >
-            <label style={{ marginBottom: "1rem", fontSize: "1.6rem" }}>
-              Please enter your Info:
+            <label style={{ marginBottom: "2rem", fontSize: "1.6rem" }}>
+              Subscribe my Email List:
               <input
                 type="text"
                 name="name"
@@ -73,7 +75,7 @@ function InfoAboutApp() {
                   margin: "0.5rem 0",
                   width: "100%",
                   borderRadius: "4px",
-                  border: "2px solid #22d2ee ",
+                  border: "2px solid transparent ",
                 }}
               />
               <input
@@ -85,7 +87,7 @@ function InfoAboutApp() {
                   margin: "0.5rem 0",
                   width: "100%",
                   borderRadius: "4px",
-                  border: "2px solid #22d3ee ",
+                  border: "2px solid transparent ",
                 }}
               />
             </label>
@@ -94,7 +96,6 @@ function InfoAboutApp() {
               className="btn"
               style={{
                 padding: ".8rem 2rem",
-
                 color: "white",
                 border: "none",
                 borderRadius: "4px",
@@ -120,7 +121,7 @@ function InfoAboutApp() {
                   marginBottom: "2rem",
                 }}
               >
-                Are you missing Abdullah Beauty?
+                Kia Ap Kase Ko Miss Karthe Ho?
               </p>
 
               <button
@@ -134,7 +135,7 @@ function InfoAboutApp() {
               <button
                 onClick={() => {
                   setStep(step + 1);
-                  return alert("Ok Zalam");
+                  return toast.warn("Ok Zalam");
                 }}
                 className="btn"
                 style={{ padding: ".8rem 2rem" }}
@@ -146,12 +147,13 @@ function InfoAboutApp() {
             <button
               onClick={() => {
                 setStep(step + 1);
-                alert("Thanks for Subscribing Our Services");
+                toast.success("🙌 Thanks for Subscribing to Our Email List! ");
+                localStorage.setItem("infoAboutAppCompleted", "true");
               }}
               className="btn"
               style={{ padding: ".8rem 2rem" }}
             >
-              Got it!
+              Got it! let Add me Some Item 🛒
             </button>
           )}
         </div>

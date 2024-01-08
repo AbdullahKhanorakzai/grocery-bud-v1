@@ -359,3 +359,6 @@ body {
 #text {
   display: none;
 }
+input:focus {
+  outline: 2px solid #22d2ee;
+}
