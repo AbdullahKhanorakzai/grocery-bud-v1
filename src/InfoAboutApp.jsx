@@ -5,6 +5,15 @@ function InfoAboutApp() {
   const [userName, setUserName] = useState("");
   const [step, setStep] = useState(1);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!userName) {
+      toast.error("❌ Error: Please provide a name ");
+      return;
+    }
+    setStep(step + 1);
+  };
+
   useEffect(() => {
     const isCompleted = localStorage.getItem("infoAboutAppCompleted");
     if (isCompleted) {
@@ -49,6 +58,7 @@ function InfoAboutApp() {
         <div className="info">
           <form
             netlify
+            onSubmit={handleSubmit}
             style={{
               display: "flex",
               flexDirection: "column",
@@ -58,7 +68,6 @@ function InfoAboutApp() {
               backgroundColor: "#fff",
               padding: "2rem 3rem",
             }}
-            onSubmit={() => setStep(step + 1)}
           >
             <label style={{ marginBottom: "2rem", fontSize: "1.6rem" }}>
               Subscribe my Email List:
