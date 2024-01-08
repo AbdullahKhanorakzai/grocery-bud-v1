@@ -93,6 +93,7 @@ function InfoAboutApp() {
             </label>
             <button
               onClick={handleProceed}
+              type="submit"
               className="btn"
               style={{
                 padding: ".8rem 2rem",
