@@ -48,21 +48,23 @@ function InfoAboutApp() {
       {step === 2 && (
         <div className="info">
           <form
+            netlify
             style={{
               display: "flex",
               flexDirection: "column",
               justifyItems: "stretch",
               maxWidth: "300px",
               margin: "0 auto",
+              backgroundColor: "#fff",
+              padding: "2rem 3rem",
             }}
-            netlify
             onSubmit={() => setStep(step + 1)}
           >
             <label style={{ marginBottom: "2rem", fontSize: "1.6rem" }}>
-              Subscribe to my Email List:
+              Subscribe my Email List:
               <input
                 type="text"
-                name="name"
+                name="full-name"
                 value={userName}
                 onChange={(e) => setUserName(e.target.value)}
                 placeholder="Enter Name"
@@ -70,17 +72,19 @@ function InfoAboutApp() {
                   padding: ".5rem",
                   margin: "0.5rem 0",
                   width: "100%",
+                  backgroundColor: "#e2e8f0",
                   borderRadius: "4px",
                   border: "2px solid transparent ",
                 }}
               />
               <input
                 type="email"
-                name="email"
+                name="type-email"
                 placeholder="Enter Email"
                 style={{
                   padding: ".5rem",
                   margin: "0.5rem 0",
+                  backgroundColor: "#e2e8f0",
                   width: "100%",
                   borderRadius: "4px",
                   border: "2px solid transparent ",
