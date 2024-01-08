@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 
 function InfoAboutApp() {
-  const [showInstructions, setShowInstructions] = useState(true);
   const [userName, setUserName] = useState("");
   const [step, setStep] = useState(1);
 
@@ -12,11 +11,6 @@ function InfoAboutApp() {
       setStep(4);
     }
   }, []);
-
-  const handleProceed = (e) => {
-    e.preventDefault();
-    setStep(step + 1);
-  };
 
   const handleGotIt = () => {
     const answer = window.confirm("Abdullah Ko Miss Karthe Ho Na?");
@@ -62,7 +56,7 @@ function InfoAboutApp() {
               margin: "0 auto",
             }}
             netlify
-            onSubmit={handleSubmit}
+            onSubmit={() => setStep(step + 1)}
           >
             <label style={{ marginBottom: "2rem", fontSize: "1.6rem" }}>
               Subscribe to my Email List:
